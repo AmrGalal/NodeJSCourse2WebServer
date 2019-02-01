@@ -26,7 +26,7 @@ var redirectToMaintenance = (req,res,next)=>{
   res.render('maintenance.hbs')
 }
 app.use(logRequests)
-app.use(redirectToMaintenance)
+//app.use(redirectToMaintenance)
 app.use(express.static(__dirname+'/assets'))
 app.get('/',(req,res)=>{
   res.render('home.hbs',{
@@ -37,6 +37,11 @@ app.get('/',(req,res)=>{
 app.get('/about',(req,res)=>{
   res.render('about.hbs',{
     pageTitle: 'about'
+  })
+})
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{
+    pageTitle: 'Projects'
   })
 })
 app.get('/bad',(req,res)=>{
