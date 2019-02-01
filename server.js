@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; // to listen for 3000 if original port doesn't exist
 var app = express(); //constructor for the express application
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -10,7 +11,7 @@ hbs.registerHelper('getYear',()=>{
 })
 
 app.set('view engine','hbs')
-app.listen(3000,()=> console.log('Server started on port 3000'))
+app.listen(port,()=> console.log(`Server started on port ${port}`))
 
 var logRequests = (req,res,next)=>{
   var timeNow = new Date().toString();
